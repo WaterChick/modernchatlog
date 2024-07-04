@@ -3,14 +3,13 @@ package cz.waterchick.configs;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
-import org.yaml.snakeyaml.Yaml;
+
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 
-import static jdk.xml.internal.SecuritySupport.getResourceAsStream;
 
 public abstract class Config {
     private final String name;
@@ -30,7 +29,7 @@ public abstract class Config {
         }
         if(!file.exists()){
 
-            try (InputStream in = getResourceAsStream(name)) {
+            try (InputStream in = ConfigurationProvider.getProvider(YamlConfiguration.class).getClass().getResourceAsStream(name)) {
                 Files.copy(in, file.toPath());
             } catch (IOException e) {
                 e.printStackTrace();
