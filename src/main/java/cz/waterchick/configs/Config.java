@@ -1,8 +1,7 @@
 package cz.waterchick.configs;
 
-import net.md_5.bungee.config.Configuration;
-import net.md_5.bungee.config.ConfigurationProvider;
-import net.md_5.bungee.config.YamlConfiguration;
+import org.bspfsystems.yamlconfiguration.file.YamlConfiguration;
+import org.yaml.snakeyaml.Yaml;
 
 
 import java.io.File;
@@ -15,7 +14,7 @@ public abstract class Config {
     private final String name;
     private final File dataFolder;
     private final File file;
-    private Configuration config;
+    private YamlConfiguration config;
 
     public Config(File dataFolder, String name){
         this.name = name;
@@ -28,18 +27,9 @@ public abstract class Config {
             dataFolder.mkdirs();
         }
         if(!file.exists()){
-
-            try (InputStream in = ConfigurationProvider.getProvider(YamlConfiguration.class).getClass().getResourceAsStream(name)) {
-                Files.copy(in, file.toPath());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            //dodelat save z resources
         }
-        try {
-            this.config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(file);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        this.config = YamlConfiguration.loadConfiguration(file);
 
         onLoad();
     }
@@ -52,14 +42,14 @@ public abstract class Config {
         onSave();
         if(config != null) {
             try {
-                ConfigurationProvider.getProvider(YamlConfiguration.class).save(config, file);
+                config.save(file);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
     }
 
-    public Configuration getConfig() {
+    public YamlConfiguration getConfig() {
         return config;
     }
 

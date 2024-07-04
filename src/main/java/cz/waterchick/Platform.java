@@ -1,5 +1,7 @@
 package cz.waterchick;
 
+import org.slf4j.Logger;
+
 import java.io.File;
 
 public interface Platform {
@@ -8,4 +10,5 @@ public interface Platform {
     String getServerVersion();
 
     File getFolder();
+    Logger getLogger();
 }
