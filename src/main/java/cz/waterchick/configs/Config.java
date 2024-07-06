@@ -1,13 +1,16 @@
 package cz.waterchick.configs;
 
 import org.bspfsystems.yamlconfiguration.file.YamlConfiguration;
-import org.yaml.snakeyaml.Yaml;
 
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 
 public abstract class Config {
@@ -26,11 +29,8 @@ public abstract class Config {
         if(!dataFolder.exists()){
             dataFolder.mkdirs();
         }
-        if(!file.exists()){
-            //dodelat save z resources
-        }
-        this.config = YamlConfiguration.loadConfiguration(file);
-
+        copyFileFromResource();
+        config = YamlConfiguration.loadConfiguration(file);
         onLoad();
     }
 
@@ -56,4 +56,22 @@ public abstract class Config {
     public abstract void onLoad();
 
     public abstract void onSave();
+
+    private void copyFileFromResource(){
+        if(file.exists()){
+            return;
+        }
+        ClassLoader classLoader = getClass().getClassLoader();
+        InputStream resource = classLoader.getResourceAsStream(name);
+        try {
+            file.createNewFile();
+            if(resource == null){
+                return;
+            }
+            Path copied = this.file.toPath();
+            Files.copy(resource, copied, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

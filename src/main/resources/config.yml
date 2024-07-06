@@ -1,0 +1,10 @@
+prefix: '&8[&2ChatLog&8] &r'
+configReloaded: '&7Config reloaded'
+noPermission: '&cNo permission!'
+invalidPlayer: '&cPlayer not found'
+notANumber: '&cInvalid limit value'
+help: '&cInvalid usage! &7Use: &f/chatlog <player | reload> [limit]'
+playerHasNoMessages: '&cPlayer has no messages sent!'
+
+printHeader: '&fMessage records of player &a%player% &7[limit=%limit%]:'
+printValue: ' &7- &f%message%'

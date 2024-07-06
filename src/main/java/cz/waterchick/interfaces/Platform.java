@@ -1,8 +1,8 @@
-package cz.waterchick;
+package cz.waterchick.interfaces;
 
-import org.slf4j.Logger;
 
 import java.io.File;
+import java.util.logging.Logger;
 
 public interface Platform {
 
