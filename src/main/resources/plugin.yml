@@ -1,0 +1,6 @@
+name: chatlog-bukkit
+version: '${project.version}'
+main: cz.waterchick.chatlogbukkit.ChatLog
+api-version: '1.16'
+commands:
+  chatlog:

@@ -6,7 +6,7 @@
 
   <groupId>waterchick</groupId>
   <artifactId>chatlog-bukkit</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.3</version>
   <packaging>jar</packaging>
 
   <name>chatlog-bukkit</name>
