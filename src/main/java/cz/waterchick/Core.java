@@ -3,7 +3,6 @@ package cz.waterchick;
 import cz.waterchick.configs.DataConfig;
 import cz.waterchick.configs.MainConfig;
 import cz.waterchick.interfaces.Platform;
-import org.bspfsystems.yamlconfiguration.configuration.ConfigurationSection;
 
 public class Core {
 
@@ -11,17 +10,17 @@ public class Core {
     private DataConfig dataConfig;
     private MainConfig mainConfig;
 
-    public static String coreVersion = "1.0.3";
+    public static String coreVersion = "1.0.4";
 
     public Core(Platform platform){
         this.platform = platform;
     }
 
     public void start(){
-        platform.getLogger().info("ModernChatLog-Core INFO: ");
-        platform.getLogger().info("Core Version: " + coreVersion);
-        platform.getLogger().info("Server Platform: " + platform.getPlatformName());
-        platform.getLogger().info("Server Version: " + platform.getServerVersion());
+        platform.getPluginLogger().info("ModernChatLog-Core INFO: ");
+        platform.getPluginLogger().info("Core Version: " + coreVersion);
+        platform.getPluginLogger().info("Server Platform: " + platform.getPlatformName());
+        platform.getPluginLogger().info("Server Version: " + platform.getServerVersion());
 
 
         this.dataConfig = new DataConfig(platform.getFolder());

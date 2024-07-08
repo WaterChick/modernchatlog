@@ -8,7 +8,6 @@ public interface Platform {
 
     String getPlatformName();
     String getServerVersion();
-
     File getFolder();
-    Logger getLogger();
+    Logger getPluginLogger();
 }
