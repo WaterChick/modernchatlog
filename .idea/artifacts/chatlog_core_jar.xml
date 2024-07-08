@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="chatlog-core:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/chatlog_core_jar</output-path>
-    <root id="archive" name="chatlog-core.jar">
-      <element id="module-output" name="chatlog-core" />
-      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/bspfsystems/yamlconfiguration/2.0.2/yamlconfiguration-2.0.2.jar" path-in-jar="/" />
-    </root>
-  </artifact>
-</component>
