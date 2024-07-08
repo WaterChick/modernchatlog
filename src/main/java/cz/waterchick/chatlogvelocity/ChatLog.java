@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 @Plugin(
         id = "chatlog-velocity",
         name = "chatlog-velocity",
-        version = "1.0.0",
+        version = "1.0.3",
         authors = "Water_Chick"
 )
 public class ChatLog implements Platform {
