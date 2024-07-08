@@ -11,7 +11,7 @@ public class Core {
     private DataConfig dataConfig;
     private MainConfig mainConfig;
 
-    public static String coreVersion = "1.0.2";
+    public static String coreVersion = "1.0.3";
 
     public Core(Platform platform){
         this.platform = platform;
