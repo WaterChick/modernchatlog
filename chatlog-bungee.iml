@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="minecraft" name="Minecraft">
+      <configuration>
+        <userChosenTypes>
+          <map>
+            <entry key="BUNGEECORD" value="true" />
+            <entry key="WATERFALL" value="false" />
+          </map>
+        </userChosenTypes>
+        <autoDetectTypes>
+          <platformType>WATERFALL</platformType>
+        </autoDetectTypes>
+        <projectReimportVersion>1</projectReimportVersion>
+      </configuration>
+    </facet>
+  </component>
+</module>
