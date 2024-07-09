@@ -4,23 +4,28 @@ import cz.waterchick.configs.DataConfig;
 import cz.waterchick.configs.MainConfig;
 import cz.waterchick.interfaces.Platform;
 
+import java.util.logging.Level;
+
 public class Core {
 
     private final Platform platform;
     private DataConfig dataConfig;
     private MainConfig mainConfig;
+    private final LogWrapper logWrapper;
 
-    public static String coreVersion = "1.0.4";
+    public static String coreVersion = "1.0.5";
 
     public Core(Platform platform){
         this.platform = platform;
+        this.logWrapper = new LogWrapper(platform.getPluginLogger(), "[ChatLog-"+platform.getPlatformName()+"]");
     }
 
     public void start(){
-        platform.getPluginLogger().info("ModernChatLog-Core INFO: ");
-        platform.getPluginLogger().info("Core Version: " + coreVersion);
-        platform.getPluginLogger().info("Server Platform: " + platform.getPlatformName());
-        platform.getPluginLogger().info("Server Version: " + platform.getServerVersion());
+
+        logWrapper.log(Level.INFO, "ChatLog-Core INFO: ");
+        logWrapper.log(Level.INFO,"Core Version: " + coreVersion);
+        logWrapper.log(Level.INFO,"Server Platform: " + platform.getPlatformName());
+        logWrapper.log(Level.INFO,"Server Version: " + platform.getServerVersion());
 
 
         this.dataConfig = new DataConfig(platform.getFolder());
