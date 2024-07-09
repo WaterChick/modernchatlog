@@ -7,12 +7,14 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class CommandTabComplete implements TabCompleter {
 
-    private static List<String> ARGUMENTS = List.of("reload");
-    private static List<String> NUMBERS = List.of("1","5","15");
+    private static List<String> ARGUMENTS = Collections.singletonList("reload");
+    private static List<String> NUMBERS = Arrays.asList("1","5","15");
 
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String label, String[] args) {

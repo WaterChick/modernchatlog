@@ -20,7 +20,7 @@ public class PlayerChat implements Listener {
         UUID uuid = player.getUniqueId();
         String message = event.getMessage();
         Optional<ChatPlayer> optionalChatPlayer = PlayerManager.getPrestigePlayer(uuid);
-        if(optionalChatPlayer.isEmpty()) return;
+        if(!optionalChatPlayer.isPresent()) return;
         if(player.hasPermission("chatlog.bypass")) return;
         ChatPlayer chatPlayer = optionalChatPlayer.get();
         PlayerManager.addPlayerMessage(chatPlayer, message);

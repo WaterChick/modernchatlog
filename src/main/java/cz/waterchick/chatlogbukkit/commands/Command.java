@@ -54,7 +54,7 @@ public class Command implements CommandExecutor {
                         }
 
                         Optional<ChatPlayer> optionalChatPlayer = PlayerManager.getPrestigePlayer(playerName);
-                        if(optionalChatPlayer.isEmpty()){
+                        if(!optionalChatPlayer.isPresent()){
                             source.sendMessage(prefix + invalidPlayer);
                             return false;
                         }
@@ -93,7 +93,7 @@ public class Command implements CommandExecutor {
                     return false;
                 }
                 Optional<ChatPlayer> optionalChatPlayer = PlayerManager.getPrestigePlayer(playerName);
-                if(optionalChatPlayer.isEmpty()){
+                if(!optionalChatPlayer.isPresent()){
                     source.sendMessage(prefix + invalidPlayer);
                     return false;
                 }
