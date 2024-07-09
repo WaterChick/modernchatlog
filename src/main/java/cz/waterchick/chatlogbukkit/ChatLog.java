@@ -51,7 +51,7 @@ public final class ChatLog extends JavaPlugin implements Platform {
     }
 
     @Override
-    public Logger getLogger(){
+    public Logger getPluginLogger() {
         return getServer().getLogger();
     }
 }
