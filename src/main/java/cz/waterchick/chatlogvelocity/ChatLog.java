@@ -73,7 +73,7 @@ public class ChatLog implements Platform {
     }
 
     @Override
-    public Logger getLogger() {
+    public Logger getPluginLogger() {
         return logger;
     }
 
