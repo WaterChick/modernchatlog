@@ -166,7 +166,7 @@
         <dependency>
             <groupId>com.github.WaterChick</groupId>
             <artifactId>modernchatlog</artifactId>
-            <version>v1.0.4-core</version>
+            <version>v1.0.5-core</version>
             <scope>compile</scope>
         </dependency>
 
