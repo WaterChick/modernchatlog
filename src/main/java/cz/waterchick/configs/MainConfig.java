@@ -2,7 +2,7 @@ package cz.waterchick.configs;
 
 import com.google.common.base.Enums;
 import cz.waterchick.enums.ConfigValue;
-import org.bspfsystems.yamlconfiguration.configuration.ConfigurationSection;
+import dev.dejvokep.boostedyaml.block.implementation.Section;
 
 import java.io.File;
 
@@ -13,14 +13,14 @@ public class MainConfig extends Config{
 
     @Override
     public void onLoad() {
-        ConfigurationSection configSection = getConfig().getConfigurationSection("");
+        Section configSection = getConfig().getSection("");
         if(configSection == null){
             return;
         }
-        for(String configValueString : configSection.getKeys(false)){
-            if (!Enums.getIfPresent(ConfigValue.class, configValueString.toUpperCase()).isPresent()) continue;
-            ConfigValue configValue = ConfigValue.valueOf(configValueString.toUpperCase());
-            String value = configSection.getString(configValueString);
+        for(Object configValueString : configSection.getKeys()){
+            if (!Enums.getIfPresent(ConfigValue.class, configValueString.toString().toUpperCase()).isPresent()) continue;
+            ConfigValue configValue = ConfigValue.valueOf(configValueString.toString().toUpperCase());
+            String value = configSection.getString(configValueString.toString());
             configValue.setValue(value);
         }
     }

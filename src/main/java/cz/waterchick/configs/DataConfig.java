@@ -2,7 +2,7 @@ package cz.waterchick.configs;
 
 import cz.waterchick.ChatPlayer;
 import cz.waterchick.managers.PlayerManager;
-import org.bspfsystems.yamlconfiguration.configuration.ConfigurationSection;
+import dev.dejvokep.boostedyaml.block.implementation.Section;
 
 import java.io.File;
 import java.util.List;
@@ -15,14 +15,14 @@ public class DataConfig extends Config{
 
     @Override
     public void onLoad() {
-        ConfigurationSection uuidSection = getConfig().getConfigurationSection("");
+        Section uuidSection = getConfig().getSection("");
         if(uuidSection == null){
             return;
         }
-        for(String key : uuidSection.getKeys(false)){
-            String uuid = key.split("/")[0];
-            String name = key.split("/")[1];
-            List<String> messages = uuidSection.getStringList(key);
+        for(Object key : uuidSection.getKeys()){
+            String uuid = key.toString().split("/")[0];
+            String name = key.toString().split("/")[1];
+            List<String> messages = uuidSection.getStringList(key.toString());
             ChatPlayer chatPlayer = new ChatPlayer(UUID.fromString(uuid),name, messages);
             PlayerManager.addChatPlayer(chatPlayer);
         }
