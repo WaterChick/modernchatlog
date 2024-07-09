@@ -2,10 +2,12 @@ package cz.waterchick.configs;
 
 import cz.waterchick.ChatPlayer;
 import cz.waterchick.managers.PlayerManager;
+import dev.dejvokep.boostedyaml.YamlDocument;
 import dev.dejvokep.boostedyaml.block.implementation.Section;
 
 import java.io.File;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class DataConfig extends Config{
@@ -15,14 +17,12 @@ public class DataConfig extends Config{
 
     @Override
     public void onLoad() {
-        Section uuidSection = getConfig().getSection("");
-        if(uuidSection == null){
-            return;
-        }
-        for(Object key : uuidSection.getKeys()){
+        YamlDocument config = getConfig();
+        Set<Object> uuidSection = config.getKeys();
+        for(Object key : uuidSection){
             String uuid = key.toString().split("/")[0];
             String name = key.toString().split("/")[1];
-            List<String> messages = uuidSection.getStringList(key.toString());
+            List<String> messages = config.getStringList(key.toString());
             ChatPlayer chatPlayer = new ChatPlayer(UUID.fromString(uuid),name, messages);
             PlayerManager.addChatPlayer(chatPlayer);
         }
