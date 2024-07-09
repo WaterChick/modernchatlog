@@ -53,7 +53,7 @@ public final class ChatLog extends Plugin implements Platform {
     }
 
     @Override
-    public Logger getLogger(){
+    public Logger getPluginLogger() {
         return this.logger;
     }
 }
