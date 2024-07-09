@@ -13,7 +13,7 @@ public class Core {
     private MainConfig mainConfig;
     private final LogWrapper logWrapper;
 
-    public static String coreVersion = "1.0.6";
+    public static String coreVersion = "1.0.7";
 
     public Core(Platform platform){
         this.platform = platform;
